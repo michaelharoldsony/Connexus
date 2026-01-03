@@ -2,6 +2,7 @@ package com.example.connexus.ui.auth
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
@@ -9,6 +10,10 @@ import androidx.compose.ui.unit.dp
 fun SignupScreen(
     onSignupSuccess: () -> Unit
 ) {
+    var username by remember { mutableStateOf("") }
+    var email by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -20,22 +25,22 @@ fun SignupScreen(
         Spacer(modifier = Modifier.height(24.dp))
 
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = username,
+            onValueChange = { username = it },
             label = { Text("Username") },
             modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = email,
+            onValueChange = { email = it },
             label = { Text("Email") },
             modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedTextField(
-            value = "",
-            onValueChange = {},
+            value = password,
+            onValueChange = { password = it },
             label = { Text("Password") },
             modifier = Modifier.fillMaxWidth()
         )

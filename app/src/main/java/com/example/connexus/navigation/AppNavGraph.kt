@@ -1,13 +1,12 @@
 package com.example.connexus.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.compose.*
-import com.example.connexus.ui.auth.LoginScreen
-import com.example.connexus.ui.auth.SignupScreen
-import com.example.connexus.ui.home.HomeScreen
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.connexus.ui.auth.LoginScreen
+import com.example.connexus.ui.auth.SignupScreen
+import com.example.connexus.ui.home.HomeScreen
 
 @Composable
 fun AppNavGraph() {
