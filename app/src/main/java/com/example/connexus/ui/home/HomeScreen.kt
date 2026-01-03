@@ -1,6 +1,8 @@
 package com.example.connexus.ui.home
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -17,6 +19,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import com.example.connexus.R
 
 @Composable
 fun HomeScreen() {
@@ -28,25 +33,34 @@ fun HomeScreen() {
         Pair("Profile", Icons.Filled.Person)
     )
 
-    Scaffold(
-        bottomBar = {
-            NavigationBar {
-                screens.forEachIndexed { index, item ->
-                    NavigationBarItem(
-                        selected = selectedIndex == index,
-                        onClick = { selectedIndex = index },
-                        icon = { Icon(item.second, contentDescription = null) },
-                        label = { Text(item.first) }
-                    )
+    Box(modifier = Modifier.fillMaxSize()) {
+        Image(
+            painter = painterResource(id = R.drawable.download),
+            contentDescription = "background_image",
+            contentScale = ContentScale.FillBounds,
+            modifier = Modifier.fillMaxSize()
+        )
+
+        Scaffold(
+            bottomBar = {
+                NavigationBar {
+                    screens.forEachIndexed { index, item ->
+                        NavigationBarItem(
+                            selected = selectedIndex == index,
+                            onClick = { selectedIndex = index },
+                            icon = { Icon(item.second, contentDescription = null) },
+                            label = { Text(item.first) }
+                        )
+                    }
                 }
             }
-        }
-    ) { innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding)) {
-            when (selectedIndex) {
-                0 -> FeedScreen()
-                1 -> ChatScreen()
-                2 -> ProfileScreen()
+        ) { innerPadding ->
+            Box(modifier = Modifier.padding(innerPadding)) {
+                when (selectedIndex) {
+                    0 -> FeedScreen()
+                    1 -> ChatScreen()
+                    2 -> ProfileScreen()
+                }
             }
         }
     }

@@ -11,6 +11,6 @@ fun ChatScreen() {
     Column(modifier = Modifier.padding(16.dp)) {
         Text("Chats", style = MaterialTheme.typography.headlineMedium)
         Spacer(modifier = Modifier.height(8.dp))
-        Text("Your conversations will appear here.")
+        Text("Your conversations will appear here(if someone wana talk to you).")
     }
 }
